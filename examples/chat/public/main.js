@@ -87,9 +87,10 @@ $(function() {
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
       .css('color', getUsernameColor(data.username));
-    var $messageBodyDiv = $('<span class="messageBody">')
-      .text(data.message);
-
+    //var $messageBodyDiv = $('<span class="messageBody">')
+    //  .text(data.message);
+    var messageBodyDiv = $('<iframe width="300" height="380" frameborder="0" allowtransparency="true">').attr("src","https://embed.spotify.com/?uri="+data.message);
+    
     var typingClass = data.typing ? 'typing' : '';
     var $messageDiv = $('<li class="message"/>')
       .data('username', data.username)
@@ -238,7 +239,6 @@ $(function() {
 
   // Whenever the server emits 'new message', update the chat body
   socket.on('new message', function (data) {
-    alert(data);
     addChatMessage(data);
   });
 
