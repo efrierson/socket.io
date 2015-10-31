@@ -58,6 +58,7 @@ $(function() {
     message = cleanInput(message);
     // if there is a non-empty message and a socket connection
     if (message && connected) {
+      console.log("Message: "+message);
       $inputMessage.val('');
       addChatMessage({
         username: username,
@@ -137,7 +138,6 @@ $(function() {
       $el.hide().fadeIn(FADE_TIME);
     }
 
-    console.log("Hello."+$el);
     if (options.prepend) {
       $messages.prepend($el);
     } else {
