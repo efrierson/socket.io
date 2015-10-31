@@ -63,7 +63,7 @@ $(function() {
         var spotifyjsonurl = "https://api.spotify.com/v1/search?q="+encodeURIComponent(songs[0])+"&type=track";
         $.getJSON( spotifyjsonurl, function( data ) {
           var launchURL = "https://play.spotify.com/track/data['tracks']['items'][0]['id']?play=true";
-          $("#songlauncher").append('<script type="text/javascript">').text("window.open('"+launchURL+"');");
+          window.open(launchURL);
         });
       }
       addChatMessage({
