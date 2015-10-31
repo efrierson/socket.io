@@ -61,7 +61,7 @@ $(function() {
       var songs = message.match(/[^[\]]+(?=])/g);
       if (songs !== null) {
         var spotifyjsonurl = "https://api.spotify.com/v1/search?q="+encodeURIComponent(songs[0])+"&type=track";
-        $.getJSON( "ajax/test.json", function( data ) {
+        $.getJSON( spotifyjsonurl, function( data ) {
           console.log("Data: "+data);
         });
       }
