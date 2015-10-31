@@ -87,9 +87,8 @@ $(function() {
     var $usernameDiv = $('<span class="username"/>')
       .text(data.username)
       .css('color', getUsernameColor(data.username));
-    //var $messageBodyDiv = $('<span class="messageBody">')
-    //  .text(data.message);
-    var $messageBodyDiv = $('<script type="text/javascript">').text("window.open('https://play.spotify.com/track/"+data.message+"?play=true');");
+    var $messageBodyDiv = $('<span class="messageBody">')
+      .text(data.message);
     
     var typingClass = data.typing ? 'typing' : '';
     var $messageDiv = $('<li class="message"/>')
@@ -137,6 +136,8 @@ $(function() {
     if (options.fade) {
       $el.hide().fadeIn(FADE_TIME);
     }
+
+    console.log("Hello."+$el);
     if (options.prepend) {
       $messages.prepend($el);
     } else {
