@@ -59,8 +59,7 @@ $(function() {
     // if there is a non-empty message and a socket connection
     if (message && connected) {
       var songs = message.match(/[^[\]]+(?=])/g);
-      if (typeof songs === "undefined") {
-      } else {
+      if (songs !== null) {
         console.log("Song: "+songs[0]);        
       }
       addChatMessage({
