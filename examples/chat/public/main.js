@@ -59,7 +59,7 @@ $(function() {
     // if there is a non-empty message and a socket connection
     if (message && connected) {
       var songs = message.match(/[^[\]]+(?=])/g);
-      if (typeof songs[0] === "undefined") {
+      if (typeof songs === "undefined") {
       } else {
         console.log("Song: "+songs[0]);        
       }
