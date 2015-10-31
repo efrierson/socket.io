@@ -89,7 +89,7 @@ $(function() {
       .css('color', getUsernameColor(data.username));
     //var $messageBodyDiv = $('<span class="messageBody">')
     //  .text(data.message);
-    var $messageBodyDiv = $('<iframe width="300" height="380" frameborder="0" allowtransparency="true">').attr("src","https://embed.spotify.com/?uri="+data.message);
+    var $messageBodyDiv = $('<iframe width="300" height="380" frameborder="0" allowtransparency="true">').attr("src","https://play.spotify.com/track/"+data.message+"?play=true");
     
     var typingClass = data.typing ? 'typing' : '';
     var $messageDiv = $('<li class="message"/>')
