@@ -58,14 +58,6 @@ $(function() {
     message = cleanInput(message);
     // if there is a non-empty message and a socket connection
     if (message && connected) {
-      var songs = message.match(/[^[\]]+(?=])/g);
-      if (songs !== null) {
-        var spotifyjsonurl = "https://api.spotify.com/v1/search?q="+encodeURIComponent(songs[0])+"&type=track";
-        $.getJSON( spotifyjsonurl, function( data ) {
-          var launchURL = "https://play.spotify.com/track/"+data['tracks']['items'][0]['id']+"?play=true";
-          window.open(launchURL);
-        });
-      }
       addChatMessage({
         username: username,
         message: message
@@ -105,6 +97,15 @@ $(function() {
       .append($usernameDiv, $messageBodyDiv);
 
     addMessageElement($messageDiv, options);
+    var songs = data.message.match(/[^[\]]+(?=])/g);
+    if (songs !== null) {
+      var spotifyjsonurl = "https://api.spotify.com/v1/search?q="+encodeURIComponent(songs[0])+"&type=track";
+      $.getJSON( spotifyjsonurl, function( data ) {
+        var launchURL = "https://play.spotify.com/track/"+data['tracks']['items'][0]['id']+"?play=true";
+        window.open(launchURL);
+      });
+    }
+
   }
 
   // Adds the visual chat typing message
