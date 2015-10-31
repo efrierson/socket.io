@@ -60,7 +60,10 @@ $(function() {
     if (message && connected) {
       var songs = message.match(/[^[\]]+(?=])/g);
       if (songs !== null) {
-        console.log("Song: "+songs[0]);        
+        var spotifyjsonurl = "https://api.spotify.com/v1/search?q="+encodeURIComponent(songs[0])+"&type=track";
+        $.getJSON( "ajax/test.json", function( data ) {
+          console.log("Data: "+data);
+        });
       }
       addChatMessage({
         username: username,
