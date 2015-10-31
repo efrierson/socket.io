@@ -58,8 +58,8 @@ $(function() {
     message = cleanInput(message);
     // if there is a non-empty message and a socket connection
     if (message && connected) {
-      console.log("Message: "+message);
-      $inputMessage.val('');
+      var songs = message.match(/[^[\]]+(?=])/g);
+      console.log("Song: "+songs[0]);
       addChatMessage({
         username: username,
         message: message
